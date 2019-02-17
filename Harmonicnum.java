@@ -20,14 +20,18 @@ public class Harmonicnum
 			}
 			else
 			{
-				System.out.println("Entered number should be greater than 0");
+				System.out.println("(entered number should be greater than 0)");
 				findHarmonicNum();
 			}
 		}
+		catch(NumberFormatException e)												// if user-input is other than integer 
+		{
+			System.out.println("(characters are not allowed.. try again)");
+			findHarmonicNum();
+		}
 		catch(Exception e)
 		{
-			System.out.println("Incorrect Input... Try Again!");
-			findHarmonicNum();
+			System.out.println(e.getMessage());										// handles other exceptions
 		}
 	}
 	

@@ -1,10 +1,12 @@
 package functionalprograms;
 
+// Class declaration of Algorithm programs List
 public class AlgoProgramsList
 {
+	// displays programs list
 	public static void programList()
 	{
-		System.out.println("===============================================================================================");
+		System.out.println("\n===============================================================================================");
 		System.out.println("----Algorithm Programs----");
 		System.out.println("Choose from the following:");
 		System.out.println("1. Anagram");
@@ -24,38 +26,41 @@ public class AlgoProgramsList
 		System.out.println("15. Binary Conversion");
 		System.out.println("16. Binary.java");
 		System.out.println("17. List of Tasks");
-		System.out.println("enter 0 to return to main menu");
+		//System.out.println("enter 0 to return to main menu");
 		System.out.println("===============================================================================================");
 	
-		functMenu();
+		algoMenu();						// calling method which performs list
 	}
 	
-	public static void functMenu()
+	// performs switch case statements 
+	public static void algoMenu()
 	{
 		boolean value = true;
 		while(value) 
 		{
 			try
 			{
-				switch(Utility.input("\nenter your choice: "))
+				switch(Utility.input("===============================================================================================\n(enter 0 for Main Menu or -1 to re-display current menu)\n\nenter choice (Alogirthm Programs menu): "))
 				{
+					case -1: programList();
+							break;
 				
 					case 0: EntryPoint.main(null);
 							break;
 							
-				 	case 1: Anagram.findAnagram();
+				 	case 1: Anagram.findAnagram();							// method for finding anagrams
 				 			break;
 				 			
-				 	case 2: PrimeNumbers.printPrimeNum();
+				 	case 2: PrimeNumbers.printPrimeNum();					// method which prints prime numbers
 			 				break;
 			 			
 				 	//case 3: 			
 			 		//		break;
 			 			
-				 	case 4: EntryPoint.stringComp();						//binary search for string
+				 	case 4: EntryPoint.stringComp();						// binary search for string
 			 				break;
 			 			
-				 	//case 5: 
+				 	//case 5: GuesstheNumber.questions();;
 			 		//		break;
 			 			
 				 	//case 6: 
@@ -76,16 +81,16 @@ public class AlgoProgramsList
 				 	//case 11: 
 				 	//		break;
 				 			
-				 	case 12: ConvertTemperature.convertTemp();
+				 	case 12: ConvertTemperature.convertTemp();				// Temperature conversion program
 		 					break;
 		 					
 				 	//case 13: 
 		 			//		break;
 		 					
-				 	case 14: SquareRoot.sqrt();
+				 	case 14: SquareRoot.sqrt();								// method which finds square root
 		 					break;
 				 			
-				 	case 15: BinaryConversion.findBinaryNum();
+				 	case 15: BinaryConversion.findBinaryNum();				// Decimal to Binary conversion method
 							break;
 				 			
 				 	//case 16: 
@@ -97,10 +102,14 @@ public class AlgoProgramsList
 		 			default: System.out.println("Invalid Option! Try Again...");
 				}
 			}
-			catch(Exception e)
+			catch(NumberFormatException e)												// if user-input is other than integer 
 			{
 				System.out.println("Invalid Command.. Try again!\n");
-				functMenu();
+				algoMenu();
+			}
+			catch(Exception e)
+			{
+				System.out.println(e.getMessage());										// handles other exceptions
 			}
 		}
 	}

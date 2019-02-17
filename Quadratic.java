@@ -24,14 +24,18 @@ public class Quadratic
 			}
 			else
 			{
-				System.out.println("value of b should be greater than a & c\n");
+				System.out.println("(value of b should be greater than a & c)");
 				findEquation();
 			}	
 		}
+		catch(NumberFormatException e)										// if user-input is other than integer
+		{
+			System.out.println("(enter only numbers.. Try again!)");
+			findEquation();
+		}
 		catch(Exception e)
 		{
-			System.out.println("enter only numbers.. Try again!\n");
-			findEquation();
+			System.out.println(e.getMessage());									// handles other exceptions
 		}
 	}
 }

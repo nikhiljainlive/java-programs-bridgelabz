@@ -1,28 +1,27 @@
 package functionalprograms;
 
+// class declaration of main method
 public class EntryPoint 
 {
+	// Main method
+	// calls method of FunctionprogramList and AlgoprogramList
 	public static void main(String[] args)
 	{
 		boolean value = true;
 		
-		System.out.println("===============================================================================================");
+		System.out.println("\n===============================================================================================");
 		System.out.println("------Main Menu------");
 		System.out.println("Choose from the following:");
 		System.out.println("1. Functional Programs");
 		System.out.println("2. Algorithm Programs");
-		System.out.println("enter 0 to exit");
 		System.out.println("===============================================================================================");
 		
 		while(value) 
 		{
 			try
 			{
-				switch(Utility.input("\nenter your choice: "))
+				switch(Utility.input("\nenter your choice(main menu): "))
 				{
-				
-					case 0: value = false;
-							break;
 							
 				 	case 1: FuncProgramList.programList();
 				 			break;
@@ -33,7 +32,7 @@ public class EntryPoint
 				 	default: System.out.println("Invalid Option! Try Again...");
 				}
 			}
-			catch(Exception e)
+			catch(NumberFormatException e)
 			{
 				System.out.println("Invalid Command.. Try again!\n");
 				main(null);
@@ -41,6 +40,7 @@ public class EntryPoint
 		}
 	}
 	
+	// test for binary search algorithm for string
 	public static void stringComp()
 	{
 		int length = Utility.input("how many strings you want to enter: ");
@@ -50,6 +50,7 @@ public class EntryPoint
 		{
 			str[i] = Utility.stringInput("enter word (" + (i+1) + ") :");
 		}
+		Utility.insertionSortString(str);
 		String key = Utility.stringInput("enter word to search for: ");
 		Utility.binarySearchString(str, key);
 	}

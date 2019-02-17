@@ -2,11 +2,12 @@ package functionalprograms;
 
 public class PowerOf2   //class declaration
 {
-	public static void findPowerOfTwo()  		//calculates power of 2
+	//calculates power of 2
+	public static void main(String[] args)
 	{
 		try
 		{
-			int n = Utility.input("Enter N: ");
+			int n = Integer.parseInt(args[0]);														//Utility.input("Enter N: ");
 	
 			if(n >= 0 && n < 31)
 			{
@@ -21,14 +22,18 @@ public class PowerOf2   //class declaration
 			}
 			else
 			{
-				System.out.println("value should be less than 31 and greater than zero");
-				findPowerOfTwo();
+				System.out.println("(value should be less than 31 and greater than zero)");
+				//findPowerOfTwo();
 			}
+		}
+		catch(NumberFormatException e)												// if user-input is other than integer 
+		{
+			System.out.println("(only numbers are allowed.. try again)");
+			//findPowerOfTwo();
 		}
 		catch(Exception e)
 		{
-			System.out.println("Incorrect Input... Try Again!");
-			findPowerOfTwo();
+			System.out.println(e.getMessage());										// handles other exceptions
 		}
 	}
 }

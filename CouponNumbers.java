@@ -1,7 +1,9 @@
 package functionalprograms;
 
+// class declaration for coupon numbers program
 public class CouponNumbers 
 {
+	// finds coupon numbers
 	public static void getCouponNums()
 	{
 		int n = Utility.input("enter number of coupon numbers to generate: ");

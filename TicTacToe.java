@@ -13,16 +13,6 @@ public class TicTacToe
 	static int length = a.length * 3;
 	static boolean occupied = false;
 	
-	/*public static boolean isEmpty()
-	{
-		if(a.length != 0)
-		{
-			return true;
-		}
-		System.out.println("Game Stopped!");
-		return false;
-	}*/
-	
 	// to take input from player one
 	public static void playerOne()
 	{
@@ -32,47 +22,38 @@ public class TicTacToe
 			if(position == 1 && a[0][0] == '-')
 			{
 				a[0][0] = 'X';
-				//occupied = false;
 			}
 			else if(position == 2 && a[0][1] == '-')
 			{
 				a[0][1] = 'X';
-				//occupied = false;
 			}
 			else if(position == 3 && a[0][2] == '-')
 			{
 				a[0][2] = 'X';
-				//occupied = false;
 			}
 			else if(position == 4 && a[1][0] == '-')
 			{
 				a[1][0] = 'X';
-				//occupied = false;
 			}
 			else if(position == 5 && a[1][1] == '-')
 			{
 				a[1][1] = 'X';
-				//occupied = false;
 			}
 			else if(position == 6 && a[1][2] == '-')
 			{
 				a[1][2] = 'X';
-				//occupied = false;
 			}
 			else if(position == 7 && a[2][0] == '-')
 			{
 				a[2][0] = 'X';
-				//occupied = false;
 			}
 			else if(position == 8 && a[2][1] == '-')
 			{
 				a[2][1] = 'X';
-				//occupied = false;
 			}
 			else if(position == 9 && a[2][2] == '-')
 			{
 				a[2][2] = 'X';
-				//occupied = false;
 			}
 			else
 			{
@@ -86,11 +67,6 @@ public class TicTacToe
 			playerOne();
 		}
 	}
-	
-	//public static boolean isOccupied(char[] a)
-	//{
-		//for()
-	//}
 	
 	// generates random number from 1 to 9 and insert input for computer's turn
 	public static void computerTurn()
@@ -137,33 +113,15 @@ public class TicTacToe
 		{
 			if(occupied == false)									// generates another random number if 
 			{														// the array position is already occupied
-			computerTurn();
-			//occupied = true;
+				computerTurn();
 			}
 		}
 		
 	}
 	
-	/*public static boolean isOccupied(int position)
-	{
-		if()
-		{
-			return false;
-		}
-		return true;
-	}*/
-	
 	// displays the game-board 
 	public static void display()
 	{
-		/*for(int i = 0; i < 3; i++)
-		{
-			for(int j = 0; j < 3; j++)
-			{
-				System.out.print(a[i][j] + " ");
-			}
-			System.out.println(); */
-		
 			System.out.println(a[0][0] + " | " + a[0][1] + " | " + a[0][2]);
 			System.out.println("---------");
 			System.out.println(a[1][0] + " | " + a[1][1] + " | " + a[1][2]);
@@ -195,65 +153,57 @@ public class TicTacToe
 	// starts the game-play and this method is the entry-point of the game
 	public static void playGame()
 	{
-		try {
-			System.out.println("Welcome to Tic-Tac-Toe Game!\n");
-			System.out.println("Player is: 'X' and Computer is: 'O'");
-			System.out.println("enter positions from 1 to 9");
-			display();
-			
-			/*if(occupied)
+		System.out.println("Welcome to Tic-Tac-Toe Game!\n");
+		System.out.println("Player is: 'X' and Computer is: 'O'");
+		System.out.println("(enter positions from 1 to 9)");
+		display();
+		
+		if(isPlayerWon() == false && isComputerWon() == false)							 
+		{
+			while(length != 0 && isPlayerWon() == false && isComputerWon() == false)
 			{
-				System.out.println("Position already occupied");
-				occupied = false;
-				playGame();
-			}*/
-			
-			if(isPlayerWon() == false && isComputerWon() == false)							// 
-			{
-				while(length != 0 && isPlayerWon() == false && isComputerWon() == false)			//  || isComputerWon() == false
-				{
-					try {
-						System.out.println("\nPlayer Turn:");
-						playerOne();
+				try {
+					System.out.println("\n=====================================================================");
+					System.out.println("\nPlayer Turn:");
+					playerOne();
+					display();
+					length--;
+					if(length != 0 && occupied == false) 
+					{
+						System.out.println("\nComputer Turn:\n");
+						computerTurn();
 						display();
 						length--;
-						if(length != 0 && occupied == false) 
-						{
-							//System.out.println(length);
-							System.out.println("\nComputer Turn:\n");
-							computerTurn();
-							display();
-							length--;
-						}
-						else
-						{
-							break;
-						}
 					}
-					catch(Exception e)
+					else
 					{
-						System.out.println("Wrong input entered! Try again...");			// if user-input is other than integer
-						
+						break;
 					}
 				}
-			}
-			if(isPlayerWon())
-			{
-				System.out.println("\nYou Won!");
-			}
-			if(isComputerWon())
-			{
-				System.out.println("\nYou Lose... Computer Won!");
-			}
-			if(length == 0 && isPlayerWon() == false && isComputerWon() == false)
-			{
-				System.out.println("\n Its a Draw");
+				catch(NumberFormatException e)
+				{
+					System.out.println("(enter positions in numbers.. try again)");		// if user-input is other than integer
+				}
+				catch(Exception e)
+				{
+					System.out.println(e.getMessage());									// handles other exceptions
+				}
 			}
 		}
-		catch(Exception e)
+		if(isPlayerWon())
 		{
-			System.out.println("Wrong input entered! Try again...");					// handles other exceptions
-			//playGame();
+			System.out.println("\nYou Won!");
+			System.out.println("=====================================================================");
+		}
+		if(isComputerWon())
+		{
+			System.out.println("\nYou Lose... Computer Won!");
+			System.out.println("=====================================================================");
+		}
+		if(length == 0 && isPlayerWon() == false && isComputerWon() == false)
+		{
+			System.out.println("\nIts a Draw");
+			System.out.println("=====================================================================");
 		}
 	}
 }
