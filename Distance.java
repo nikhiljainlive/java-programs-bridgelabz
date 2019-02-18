@@ -15,10 +15,14 @@ public class Distance
 		
 		System.out.print("The Euclidean distance is: " + distance + "\n");
 		}
+		catch(NumberFormatException e)											// if user-input is other than integer
+		{
+			System.out.println("(only integer values are allowed.. try again)");
+			findEDistance();
+		}
 		catch(Exception e)
 		{
-			System.out.println("enter values in numbers.. Try again!\n");
-			findEDistance();
+			System.out.println(e.getMessage());									// handles other exceptions
 		}
 	}
 }

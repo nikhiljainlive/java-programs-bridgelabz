@@ -1,5 +1,6 @@
 package functionalprograms;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -82,7 +83,7 @@ public class Utility
 			{
 				return false;
 			}
-		}
+		}//end of outer nested if-else block
 		
 		return true;											// returns true if all above conditions fails
 	}
@@ -122,27 +123,43 @@ public class Utility
 				a[i] = Utility.input("Enter element (" + (i+1) + ") : ");
 			}	
 		}
-		catch(Exception e)
+		catch(NumberFormatException e)											// handles exception if user input is other than integer
 		{
 			System.out.println("enter elements in integers... Try again!\n");
 			readArray(a, capacity);
+		}
+		catch(Exception e)														// handles other exception
+		{
+			System.out.println(e.getMessage());
 		}
 	}
 	
 	// creating Stop-watch Timer using time class method
 	public static String stopWatchTimer(int startTime)
 	{	
-		int stopTime = (int) System.nanoTime();				// stopping timer after any key entered
-		int nanos = (stopTime - startTime);
-		int s = nanos / 1000000000;													//int micros = milis /1000;
+		int stopTime = (int) System.currentTimeMillis();							// stopping timer after any key entered
+		int ms = (stopTime - startTime);
+		int s = ms / 1000;													//int micros = milis /1000;
 		int m = s / 60;
 		int h = m / 60;
 		
 		//formats the string
-		String displayTimer = String.format("%02d h: %02d m: %02d s: %08d ns", h , ((m>=0 && m<60) ? m : m % 60), ((s>=0 && s<60) ? s : s % 60), nanos);
+		String displayTimer = String.format("%02d h: %02d m: %02d s: %02d ms", h , ((m>=0 && m<60) ? m : m % 60), ((s>=0 && s<60) ? s : s % 60), ((ms>=0 && ms<100) ? ms : ms % 100));
 
 		return displayTimer;
 	}
+	
+	//checks if the year is of 4 digits or not
+		public static int yearCount(int year)
+		{
+			int count = 0;
+			while(year != 0)
+			{
+				year = year / 10;
+				count++;
+			}
+			return count;														// returns the digits in entered input
+		}
 	
 //----------------------------------------------------------------------------------------------------------------------------------------------
 	
@@ -204,17 +221,17 @@ public class Utility
 		
 	}
 	
-	// calculates prime numbers with a given range
+	// calculates prime numbers within a given range
 	public static void getPrimeNumbers(int range1, int range2)
 	{
-		int i = 0;								//j=0
+		int i = 0;															//j=0
 		int num = 0;
 		//Empty String
 		String  primeNumbers = "";
-		//int[] a = new int[length];
+		//ArrayList al = new ArrayList();
 		for (i = range1; i <= range2; i++)         
 		{ 		  	  
-			int counter=0; 	  
+			int counter = 0, primes = 0;	  
 			for (num = i; num >= 1; num--)
 			{
 				if (i%num==0)
@@ -224,43 +241,26 @@ public class Utility
 			}// end of inner loop
 			if (counter == 2)
 			{
+				++primes;
+			//for(int k = 1; k <= primes+1; k++)
+			//{
+				//al.add(i, 0);
+			//}
 				//Appended the Prime number to the Array
 				primeNumbers = primeNumbers + i + " ";
 			}
-			//j++;
+																									//j++;
 		}// end of outer loop	
 		
 		System.out.println("Prime numbers from " + range1 + " to " + range2 + " are :");
 		System.out.println(primeNumbers);
+		//System.out.println(al);
 	}
 	
-	// sorts the entered elements by bubble sort algorithm
-	public static void bubbleSort(int[] a)
-	{
-			int temp;
-			for(int i =0; i < a.length-1; i++)
-			{
-				for(int j = 0; j < a.length-1; j++)
-				{
-					if(a[j+1] < a[j])
-					{
-						temp = a[j];
-						a[j] = a[j+1];
-						a[j+1] = temp;
-					}
-				}
-			}
-			
-			System.out.println("Sorting through Bubble Sort Algorithm: ");
-			for(int i = 0; i < a.length; i++)
-			{
-				System.out.print(a[i] + " ");
-			}
-			
-			System.out.print("\n");	
-	}
 	
-	// method for binary search operation on integers
+	
+	
+	// 4. (i) method for binary search operation on integers
 	public static void binarySearchInt(int[] a, int key)
 	{
 		int li =0, hi = a.length, mi = (li + hi) / 2;
@@ -276,47 +276,147 @@ public class Utility
 			{
 				hi = mi - 1;
 			}
-			else if (key > a[mi])
+			else
 			{
 				li = mi + 1;
-			}
-			else if (li == hi && a[mi] != key)
-			{
-				System.out.println("Element not found");
-			}
+			}// end of nested if-else
 			
 			mi = (li + hi) / 2;
 		}//end of while loop
+		if(li >= hi && a[mi] != key)
+		{
+			System.out.println("Element not found!");
+		}
 	}
 	
-	// binary search for searching strings in a string array
+	// 4. (ii) method for binary search operation on strings 
 	public static void binarySearchString(String[] s, String key)
 	{
 		int li = 0, hi = s.length - 1, mi = (li + hi) / 2;
-		//int res = key.compareTo(s[mi]);
 		
 		while (li <= hi)
 		{
-			if (key.equals(s[mi]))													// res == 0
+			int value = key.compareTo(s[mi]);
+			if (value == 0)
 			{
 				System.out.println("entered string found at " + (mi+1) + " position in array");
 				break;
 			}
-			else if (key.hashCode() < s[mi].hashCode())								//res == -1
+			else if (value < 0)
 			{
-				hi = mi -1;
+				hi = mi - 1;
 			}
-			else if (key.hashCode() > s[mi].hashCode())
+			else if (value > 0)
 			{
 				li = mi +1 ;
-			}
-			else
-			{
-				System.out.println("Element not found");
-			}//end of if-else condition
+			}//end of nested if-else condition
 			
 			mi = (li + hi) / 2;
 		}//end of while loop
+		if(li >= hi)
+		{
+			System.out.println("String not found!");
+		}
+	}
+	
+	// 4. (iii) insertion sort method for integers
+	public static void insertionSortInt(int[] a)
+	{
+		for(int i = 1; i < a.length; i++)
+		{
+			int hole = i, value = a[hole];
+			while(hole > 0 && a[hole - 1] > value)
+			{
+				a[hole] = a[hole -1];
+				hole = hole - 1;
+			}
+			a[hole] = value;
+		}
+		
+		System.out.println("Sorting through Insertion Sort Algorithm:\n");
+		for(int i = 0; i < a.length; i++)
+		{
+			System.out.print(a[i] + " ");
+		}
+		
+		System.out.print("\n");	
+	}
+	
+	// 4. (iv) insertion sort method for strings
+	public static void insertionSortString(String[] s)
+	{
+		for(int i = 0; i < s.length; i++)
+		{
+			int hole = i;
+			String value = s[i];
+			while(hole > 0 && s[hole - 1].compareTo(value) > 0)
+			{
+				s[hole] = s[hole -1];
+				hole = hole - 1;
+			}
+			
+			s[hole] = value;
+		}
+		
+		System.out.println("Sorting through Insertion Sort Algorithm:\n");
+		for(int i = 0; i < s.length; i++)
+		{
+			System.out.print(s[i] + " ");
+		}
+		
+		System.out.print("\n");
+	}
+	
+	// 4. (v) bubble sort algorithm implementation on integers
+	public static void bubbleSortInt(int[] a)
+	{
+		int temp;
+		for(int i =0; i < a.length-1; i++)
+		{
+			for(int j = 0; j < a.length-1; j++)
+			{
+				if(a[j+1] < a[j])
+				{
+					temp = a[j];
+					a[j] = a[j+1];
+					a[j+1] = temp;
+				}
+			}
+		}
+		
+		System.out.println("Sorting through Bubble Sort Algorithm:\n");
+		for(int i = 0; i < a.length; i++)
+		{
+			System.out.print(a[i] + " ");
+		}
+		
+		System.out.print("\n");	
+	}
+		
+	// 4. (vi) bubble sort algorithm implementation on strings
+	public static void bubbleSortString(String[] sArray)
+	{
+		String temp;
+		for(int i =0; i < sArray.length - 1; i++)
+		{	
+			for(int j = 0; j < sArray.length - 1; j++)
+			{
+				if (sArray[j].compareTo(sArray[j + 1]) > 0)
+				{
+					temp = sArray[j];
+					sArray[j] = sArray[j + 1];
+					sArray[j + 1] = temp;
+				}
+			}
+		}
+		
+		System.out.println("Sorting through Bubble Sort Algorithm:\n");
+		for(int i = 0; i < sArray.length; i++)
+		{
+			System.out.print(sArray[i] + " ");
+		}
+		
+		System.out.print("\n");
 	}
 	
 	// takes temperature as input and displays the temperature conversion

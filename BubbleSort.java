@@ -13,15 +13,15 @@ public class BubbleSort
 			
 			Utility.readArray(a, arrLength);								// reads array
 			int startT = (int) System.nanoTime();
-			Utility.bubbleSort(a);											// sorts array
-			System.out.println(Utility.stopWatchTimer(startT));
+			Utility.insertionSortInt(a);											// sorts array
+			System.out.println(Utility.stopWatchTimer(startT));				// displays stop-watch timer
 			
 			int key = Utility.input("enter element to search: ");
-			Utility.binarySearchInt(a, key);
+			Utility.binarySearchInt(a, key);								// binary search
 		}
 		catch(Exception e)
 		{
-			System.out.println("Invalid Input.. Try again!");
+			System.out.println("Invalid Input.. Try again!");				// handles exceptions
 			sortNumbers();
 		}
 	}

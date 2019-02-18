@@ -1,36 +1,37 @@
 package functionalprograms;
 
+// class declaration for coupon numbers program
 public class CouponNumbers 
 {
+	// finds coupon numbers
 	public static void getCouponNums()
 	{
-		int n = Utility.input("enter number of coupon numbers to generate: ");
-		int[] randomCoupons = new int[n];
-		int rcount = 0;
-		
-		//while()
-		//{
-		int i = 0;
-			while(i != n-1)
-			{
-				int rn = (int) Utility.rand.nextInt(9) + 1;
-				rcount++;
-				
-				while(rn != randomCoupons[i])
+		int n = Utility.input("enter N:  ");
+		int[] ranCoupons = new int[n];
+		int rcount = 0, i = 0;
+		int length = ranCoupons.length;
+		while(length != 0)
+		{
+			int rn = (int) Utility.rand.nextInt(9) + 1;
+			//for(int j = 0; j <= ; j++)
+		//	{
+				if(ranCoupons[i] == rn)																	
 				{
-					rcount++;
-					randomCoupons[i] = rn;
-					i++;
-					rcount++;
 					break;
+				}																			
+				else																			
+				{
+					ranCoupons[i] = rn;
+					break;
+					//length--;
 				}
-			
-			}
-		//}
+				//rcount++;
+			//}
+		}
 		
 		for(i = 0; i < n; i++)
 		{
-			System.out.println(randomCoupons[i]);
+			System.out.println(ranCoupons[i]);
 			System.out.println("Random Numbers generated: " + rcount);
 		}
 		

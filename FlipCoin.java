@@ -1,8 +1,10 @@
 package functionalprograms;
 
+// class declaration for FlipCoin program
 public class FlipCoin 
 {
-	public static void flipCoin()  // calculates the percentage of heads and tails in flipping coin
+	// calculates the percentage of heads and tails in flipping a coin
+	public static void flipCoin()
 	{
 		try 
 		{
@@ -11,7 +13,8 @@ public class FlipCoin
 				
 			if(Utility.isLessthan(nooftimes, 0))
 			{
-				System.out.println("entered number should not be negative");
+				System.out.println("(only positive integers are allowed...try again)");
+				flipCoin();
 			}
 			else
 			{
@@ -25,16 +28,21 @@ public class FlipCoin
 					else
 					{
 						tails++;
-					}
+					}//end of inner if-else block
 				}
+				
 				System.out.println("Heads: " + Utility.percent(heads, nooftimes) + "%");
 				System.out.println("Tails: " + Utility.percent(tails, nooftimes) + "%");
-			}
+			}//end of outer if-else block
+		}
+		catch(NumberFormatException e)												// if user-input is other than integer 
+		{
+			System.out.println("(only numbers are allowed.. try again)");
+			flipCoin();
 		}
 		catch(Exception e)
 		{
-			System.out.println("Incorrect Input... Try Again!");
-			flipCoin();
+			System.out.println(e.getMessage());										// handles other exceptions
 		}
 	}
 }
