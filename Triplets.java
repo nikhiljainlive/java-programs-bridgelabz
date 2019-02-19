@@ -11,7 +11,7 @@ public class Triplets
 			int capacity = Utility.input("No. of Elements you want to check: "), count = 0;
 			int[] a = new int[capacity];
 			
-			Utility.readArray(a, capacity);
+			Utility.readIntArray(a, capacity);
 			
 			for(int i = 0; i < capacity; i++)
 			{

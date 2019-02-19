@@ -9,7 +9,7 @@ public class LeapYear
 		try 
 		{
 			int year = Utility.input("enter the year: ");
-			int count = yearCount(year);
+			int count = Utility.digitsCount(year);
 			if(count == 4 && Utility.isLessthan(year, 0) == false)
 			{
 				if(year % 4 == 0 || year % 400 == 0)
@@ -36,17 +36,5 @@ public class LeapYear
 		{
 			System.out.println(e.getMessage());										// handles other exceptions
 		}
-	}
-	
-	//checks if the year is of 4 digits or not
-	public static int yearCount(int year)
-	{
-		int count = 0;
-		while(year != 0)
-		{
-			year = year / 10;
-			count++;
-		}
-		return count;														// returns the digits in entered input
 	}
 }

@@ -1,15 +1,27 @@
 package functionalprograms;
 
+// class declaration of decimal to binary number conversion method
 public class BinaryConversion 
 {
+	// takes decimal number from user and displays binary number
 	public static void findBinaryNum()
 	{
-		int n = Utility.input("enter the number: ");
+		try
+		{
+			int n = Utility.input("enter the number: ");
+			toBinary1(n);
+		}
+		catch(NumberFormatException e)
+		{
+			System.out.println("only numbers are allowed.. try again");
+		}
 		
 		//System.out.println("The binary number is: " + toBinary(n));
-		toBinary1(n);
+		
 	}
 	
+	// converts decimal number to binary number
+	// takes user input as argument
 	public static void toBinary1(int num)
 	{
 		if(num > 0)
@@ -41,11 +53,10 @@ public class BinaryConversion
 		
 	}
 	
+	// another method to convert decimal to binary
 	public static int toBinary(int num)
-	{
-		
+	{	
 		String binary = "";
-		
 		while(num != 1)
 		{
 			if(num % 2 == 0)
@@ -59,12 +70,11 @@ public class BinaryConversion
 			num = num / 2;
 			//System.out.println(num);
 		}
-		binary = "1" + binary ;
 		
+		binary = "1" + binary ;
 		int binaryNum = Integer.parseInt(binary);
 		
 		return binaryNum;
-		// System.out.println("The binary number is: " + binary);
 	}
 	
 	

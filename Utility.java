@@ -1,6 +1,5 @@
 package functionalprograms;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -113,20 +112,20 @@ public class Utility
 		return percent;
 	}
 
-	// reads array elements
-	public static void readArray(int[] a, int capacity)
+	// reads integer array elements
+	public static void readIntArray(int[] a, int capacity)
 	{
 		try 
 		{
 			for (int i = 0; i < capacity; i++)
 			{
-				a[i] = Utility.input("Enter element (" + (i+1) + ") : ");
+				a[i] = input("Enter element (" + (i+1) + ") : ");
 			}	
 		}
 		catch(NumberFormatException e)											// handles exception if user input is other than integer
 		{
 			System.out.println("enter elements in integers... Try again!\n");
-			readArray(a, capacity);
+			readIntArray(a, capacity);
 		}
 		catch(Exception e)														// handles other exception
 		{
@@ -134,20 +133,48 @@ public class Utility
 		}
 	}
 	
+	// reads String array elements
+		public static void readStringArray(String[] a, int capacity)
+		{
+			try 
+			{
+				for (int i = 0; i < capacity; i++)
+				{
+					a[i] = stringInput("enter string(" + (i+1) + "): ");
+				}	
+			}
+			catch(Exception e)														// handles other exception
+			{
+				System.out.println(e.getMessage());
+			}
+		}
+	
 	// creating Stop-watch Timer using time class method
 	public static String stopWatchTimer(int startTime)
 	{	
-		int stopTime = (int) System.nanoTime();				// stopping timer after any key entered
-		int nanos = (stopTime - startTime);
-		int s = nanos / 1000000000;													//int micros = milis /1000;
+		int stopTime = (int) System.currentTimeMillis();							// stopping timer after any key entered
+		int ms = (stopTime - startTime);
+		int s = ms / 1000;													
 		int m = s / 60;
 		int h = m / 60;
 		
 		//formats the string
-		String displayTimer = String.format("%02d h: %02d m: %02d s: %08d ns", h , ((m>=0 && m<60) ? m : m % 60), ((s>=0 && s<60) ? s : s % 60), nanos);
+		String displayTimer = String.format("%02d h: %02d m: %02d s: %02d ms", h , ((m>=0 && m<60) ? m : m % 60), ((s>=0 && s<60) ? s : s % 60), ((ms>=0 && ms<100) ? ms : ms % 100));
 
 		return displayTimer;
 	}
+	
+	// calculates the digits in a number
+		public static int digitsCount(int num)
+		{
+			int count = 0;
+			while(num != 0)
+			{
+				num = num / 10;
+				count++;
+			}
+			return count;														// returns the digits in entered input
+		}
 	
 //----------------------------------------------------------------------------------------------------------------------------------------------
 	
@@ -180,46 +207,37 @@ public class Utility
 	}
 	
 	// checks if a number is palindrome
-	public static void isPalindrome(int num)
+	public static boolean isPalindrome(int num)
 	{
-		int count = 0, tempnum = num;
-		
-		while(tempnum != 0)
-		{
-			tempnum = tempnum / 10;
-			count++;
-		}
-		
+		int count = digitsCount(num), tempNum = num;
 		int res = 0;
 		for(int i = 1; i <= count; i++)
 		{
-			int rem = num % 10;
+			int rem = tempNum % 10;
 			res = res * 10 + rem;
-			num = num / 10;
+			tempNum = tempNum / 10;
 		}
 		
 		if(res == num)
 		{
-			System.out.println("Entered number is a palindrome");
+			return true;
 		}
 		else
 		{
-			System.out.println("Entered number is not palindrome");
+			return false;	
 		}
-		
 	}
 	
 	// calculates prime numbers within a given range
-	public static void getPrimeNumbers(int range1, int range2)
+	public static String getPrimeNumbers(int range1, int range2)
 	{
-		int i = 0;															//j=0
+		int i = 0;														
 		int num = 0;
 		//Empty String
 		String  primeNumbers = "";
-		ArrayList al = new ArrayList();
 		for (i = range1; i <= range2; i++)         
 		{ 		  	  
-			int counter = 0, primes = 0;	  
+			int counter = 0;	  
 			for (num = i; num >= 1; num--)
 			{
 				if (i%num==0)
@@ -227,26 +245,70 @@ public class Utility
 					counter = counter + 1;
 				}
 			}// end of inner loop
+			
 			if (counter == 2)
 			{
-				++primes;
-			//for(int k = 1; k <= primes+1; k++)
-			//{
-				al.add(i, 0);
-			//}
 				//Appended the Prime number to the Array
 				primeNumbers = primeNumbers + i + " ";
-			}
-																									//j++;
+			}	
 		}// end of outer loop	
 		
-		System.out.println("Prime numbers from " + range1 + " to " + range2 + " are :");
-		System.out.println(primeNumbers);
-		System.out.println(al);
+		return primeNumbers;
 	}
 	
+	// prints the prime numbers which are palindrome
+	public static void palindromicPrime(String primeNums)
+	{
+		String[] primeStr = primeNums.split(" ");
+		int count = 0;
+		System.out.println("The Palindromic Primes are:");
+		for(int i = 0; i < primeStr.length; i++)
+		{
+			int num = Integer.parseInt(primeStr[i]);
+			if(isPalindrome(num) == true)
+			{
+				System.out.print(num + " ");
+				count++;
+			}
+		}
+		if(count == 0)
+		{
+			System.out.println("No palindromic primes are found!");
+		}
+		else
+		{
+			System.out.println("\nTotal numbers: " + count);
+		}
+		System.out.println();
+	}
 	
-	
+	// prints prime numbers which are anagrams
+	public static void anagramPrimes(String primeNums)
+	{
+		String[] anaGrams = primeNums.split(" ");
+		int count = 0;
+		System.out.println("The prime numbers which are Anagrams with given range:");
+		for(int i = 0; i < anaGrams.length; i++)
+		{
+			for(int j = 1 + i; j < anaGrams.length; j++)
+			{
+				if(Utility.isAnagram(anaGrams[i], anaGrams[j]) == true)
+				{
+					count++;
+					System.out.print(anaGrams[i] + " " + anaGrams[j] + " ");
+				}
+			}
+		}
+		if(count == 0)
+		{
+			System.out.println("No Prime numbers(which are Anagrams) found");
+		}
+		else
+		{
+			System.out.println("\nTotal numbers: " + count);
+		}
+		System.out.println();
+	}
 	
 	// 4. (i) method for binary search operation on integers
 	public static void binarySearchInt(int[] a, int key)
@@ -411,19 +473,19 @@ public class Utility
 	public static void temperatureConversion()
 	{
 		String s = Utility.stringInput("Temperature(with f or c at last) :");
-		
-		if(s.endsWith("f") || s.endsWith("F") || s.endsWith("c") || s.endsWith("C"))
+		String str = s.toLowerCase();
+		if(str.endsWith("f") || str.endsWith("c"))
 		{
 			String s1 = s.substring(0, s.length()-1);
 			
-			if(s.endsWith("f") || s.endsWith("F"))
+			if(str.endsWith("f"))
 			{
 				if(isInteger(s1))
 				{
 					float f = Float.parseFloat(s1);
 					float c = (float) ((f - 32.0) * (5 / 9.0));
 					
-					System.out.println(c + " Â°C");
+					System.out.println(c + " °C");
 				}
 				else
 				{
@@ -432,14 +494,14 @@ public class Utility
 				}
 				
 			}
-			else if(s.endsWith("c") || s.endsWith("C"))
+			else if(str.endsWith("c"))
 			{
 				if(isInteger(s1))
 				{
 					float c = Float.parseFloat(s1);
 					float f = (float) (c * (9 / 5.0)) + 32;
 					
-					System.out.println(f + " Â°F");
+					System.out.println(f + " °F");
 				}
 				else
 				{

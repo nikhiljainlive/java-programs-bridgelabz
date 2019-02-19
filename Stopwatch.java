@@ -9,12 +9,12 @@ public class Stopwatch
 	{
 		try
 		{
-			int startT = (int) System.currentTimeMillis();					// starting timer
+			int startT = (int) System.currentTimeMillis();								// starting timer
 			System.out.println("Stopwatch started! enter any key to stop...");
 			Utility.scan.nextLine();
 			System.out.println(Utility.stopWatchTimer(startT));							// calling stopWatch Timer method from utility class
 		}
-		catch(Exception e)											// handles exceptions
+		catch(Exception e)																// handles exceptions
 		{
 			System.out.println(e.getMessage());
 		}

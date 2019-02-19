@@ -43,9 +43,9 @@ public class FuncProgramList
 					case -1: programList();
 							break;
 				
-					case 0: EntryPoint.main(null);						// case 0 for returning back to main method
-							break;
-							
+					case 0: EntryPoint.programList();					// returns back to main method
+							return;						
+					
 				 	case 1: ReplaceString.replaceString();				// replace string method
 				 			break;
 				 			
@@ -55,7 +55,7 @@ public class FuncProgramList
 				 	case 3: LeapYear.isLeapYear();						// method for finding leap year
 			 				break;
 			 			
-				 	//case 4: PowerOf2.findPowerOfTwo();					// method for calculating power of 2
+				 	//case 4: PowerOf2.findPowerOfTwo();			// cmd line -method for calculating power of 2
 			 		//		break;
 			 			
 				 	case 5: Harmonicnum.findHarmonicNum();				// method for finding harmonic number
@@ -67,7 +67,7 @@ public class FuncProgramList
 				 	case 7: Gambler.playGambler();						// gambler program
 			 				break;
 			 			
-				 	case 8: CouponNumbers.getCouponNums();				// coupon numbers program
+				 	case 8: Coupons.getCouponNums();			 		// coupon numbers program
 			 				break;
 			 			
 				 	case 9: TwoDArray.twodarray();						// 2-d array program
@@ -79,7 +79,7 @@ public class FuncProgramList
 				 	case 11: Distance.findEDistance();					// finds euclidean distance
 				 			break;
 				 			
-				 	case 12: System.out.println("Build in Progress"); 
+				 	case 12: System.out.println("Separate program"); 	// separate program
 		 					break;
 		 					
 				 	case 13: Stopwatch.displayTimer();					// stop-watch timer

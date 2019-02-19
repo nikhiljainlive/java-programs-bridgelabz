@@ -8,13 +8,13 @@ public class ReplaceString
 	{
 		try 
 		{
-			String username = Utility.stringInput("Enter your Username: ");					// taking input using input method of utility class
+			String userName = Utility.stringInput("Enter your Username: ");					// taking input using input method of utility class
 			
-			if(Utility.isString(username) == true)											// validates the string if contains digits or white-spaces
+			if(Utility.isString(userName) == true)											// validates the string if contains digits or white-spaces
 			{
-				if(username.length() >= 3)													// prints message if user-name is greater than 3 characters
+				if(userName.length() >= 3)													// prints message if user-name is greater than 3 characters
 				{
-					System.out.println("Hello " + username + ", How are you?\n");
+					System.out.println("Hello " + userName + ", How are you?\n");
 				}
 				else
 				{

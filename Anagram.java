@@ -22,7 +22,7 @@ public class Anagram
 				System.out.println("\nEntered strings are not Anagrams");
 			}//end of if-else block	
 		}
-		catch(Exception e)
+		catch(Exception e)												// handles exceptions if any
 		{
 			System.out.println(e.getMessage());
 		}
