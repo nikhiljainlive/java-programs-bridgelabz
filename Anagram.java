@@ -1,9 +1,17 @@
 package functionalprograms;
 
-// Class declaration of Anagram program
+/**
+ * @purpose class declaration of Anagram program
+ * @author Nikhil Jain
+ * @version 1.0
+ */
 public class Anagram
 {
-	// method for displaying if entered strings are anagrams or not
+	/**
+	 * @purpose method for displaying if entered strings are anagrams or not
+	 * @param void
+	 * @return void
+	 */
 	public static void findAnagram()
 	{
 		try
@@ -22,7 +30,7 @@ public class Anagram
 				System.out.println("\nEntered strings are not Anagrams");
 			}//end of if-else block	
 		}
-		catch(Exception e)
+		catch(Exception e)													// handles exceptions if any
 		{
 			System.out.println(e.getMessage());
 		}

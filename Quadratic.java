@@ -1,11 +1,18 @@
 package functionalprograms;
 
-//Class Declaration of calculating Quadratic Equations
+/**
+ * @purpose Class Declaration of calculating Quadratic Equations
+ * @author Nikhil Jain
+ * @version 1.0
+ */
 public class Quadratic
 {
-	// calculates the quadratic roots of a quadratic equation
-	// takes a,b,c as input and here b should be greater than a and c
-	// to calculate roots
+
+	/**
+	 * @purpose calculates and prints the quadratic roots of a quadratic equation
+	 * @param void
+	 * @return void
+	 */
 	public static void findEquation()
 	{
 		try
@@ -28,7 +35,7 @@ public class Quadratic
 				findEquation();
 			}	
 		}
-		catch(NumberFormatException e)										// if user-input is other than integer
+		catch(NumberFormatException e)											// if user-input is other than integer
 		{
 			System.out.println("(enter only numbers.. Try again!)");
 			findEquation();

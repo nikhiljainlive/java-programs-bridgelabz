@@ -1,9 +1,15 @@
 package functionalprograms;
 
-// class declaration for change returned by Vending Machine program
+/**
+ * @purpose class declaration for change returned by Vending Machine program
+ * @author Nikhil Jain
+ * @version 1.0
+ */
 public class VendingMachine 
 {
-	// displays the fewest notes returned
+	/**
+	 * @purpose displays the fewest notes returned
+	 */
 	public static void fewNotes()
 	{
 		try
@@ -20,17 +26,21 @@ public class VendingMachine
 				System.out.println("amount should be greater than zero.. try again");
 			}
 		}
-		catch(NumberFormatException e)
+		catch(NumberFormatException e)											// if the user input is other than integer
 		{
 			System.out.println("invalid input.. only numbers are allowed");
 		}
-		catch(Exception e)
+		catch(Exception e)														// handles all other exceptions 
 		{
 			System.out.println(e.getMessage());
 		}
 	}
 	
-	// calculates the fewest notes
+	/**
+	 * @purpose calculates the fewest notes
+	 * @param change
+	 * @param notes
+	 */
 	public static void calculateChange(int change, int[] notes)
 	{
 		int i = notes.length-1;

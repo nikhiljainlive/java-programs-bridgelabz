@@ -1,10 +1,18 @@
 package functionalprograms;
 
-//Class Declaration of WindChill Program
+/**
+ * @purpose Class Declaration of WindChill Program
+ * @author Nikhil Jain
+ * @version 1.0
+ */
 public class WindChill 
 {
-	// calculates the wind-chill
-	// takes temperature and wind-speed as input
+
+	/**
+	 * @purpose calculates the wind-chill
+	 * @param void
+	 * @return void
+	 */
 	 public static void findWindChill()
 	 {
 		 try 

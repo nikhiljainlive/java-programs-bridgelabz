@@ -1,7 +1,17 @@
 package functionalprograms;
 
+/**
+ * @purpose class declaration for finding harmonic number
+ * @author admin1
+ * @version 1.0
+ */
 public class Harmonicnum
 {
+	/**
+	 * @purpose calculates harmonic number
+	 * @param void
+	 * @return void
+	 */
 	public static void findHarmonicNum()
 	{
 		try
@@ -29,9 +39,9 @@ public class Harmonicnum
 			System.out.println("(characters are not allowed.. try again)");
 			findHarmonicNum();
 		}
-		catch(Exception e)
+		catch(Exception e)															// handles other exceptions
 		{
-			System.out.println(e.getMessage());										// handles other exceptions
+			System.out.println(e.getMessage());										
 		}
 	}
 	

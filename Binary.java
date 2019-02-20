@@ -1,18 +1,25 @@
 package functionalprograms;
 
-// class declaration of swap nibbles in a  byte program
+/**
+ * @purpose class declaration of swap nibbles in a  byte program
+ * @author Nikhil Jain
+ * @version 1.0
+ */
 public class Binary
-{
-	// swap nibbles in a byte
-	// takes user input as number
-	// and left shift the right side nibbles by 4 digits
-	// and right shift the left side nibbles by 4 digits
+{ 
+	/**
+	 * @purpose takes number from user and shifts the nibbles to opposite side by 4 digits
+	 * @param x
+	 * @return
+	 */
 	public static int swapNibbles(int x)
 	{
 		return((x & 0x0F) << 4 | (x & 0xF0) >> 4);							// 0x0F is 0000 1111 and 0xF0 is 1111 0000
 	}
 	
-	// displays swapped nibbles in a binary number
+	/**
+	 * @purpose displays swapped nibbles in a binary number
+	 */
 	public static void swapBinaryNum()
 	{
 		try 
@@ -30,11 +37,11 @@ public class Binary
 				System.out.println("number should be greater than zero.. try again");
 			}
 		}
-		catch(NumberFormatException e)
+		catch(NumberFormatException e)												// if user input is other than integer
 		{
 			System.out.println("only number input is allowed.. try again");
 		}
-		catch(Exception e)
+		catch(Exception e)															// handles all other exceptions
 		{
 			System.out.println(e.getMessage());
 		}

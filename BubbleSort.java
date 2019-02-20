@@ -1,27 +1,39 @@
 package functionalprograms;
 
-// Class Declaration for Bubble Sort
+/**
+ * @purpose Class Declaration for Bubble Sort
+ * @author Nikhil Jain
+ * @version 1.0
+ */
 public class BubbleSort
 {
-	// displays sorted array
+	/**
+	 * @purpose displays sorted array
+	 */
 	public static void sortNumbers()
 	{
 		try 
 		{
 			int arrLength = Utility.input("enter no. of elements: ");
-			int[] a = new int[arrLength];
+			if( arrLength > 0)
+			{
+				int[] a = new int[arrLength];
 			
-			Utility.readArray(a, arrLength);								// reads array
-			int startT = (int) System.nanoTime();
-			Utility.insertionSortInt(a);											// sorts array
-			System.out.println(Utility.stopWatchTimer(startT));				// displays stop-watch timer
-			
-			int key = Utility.input("enter element to search: ");
-			Utility.binarySearchInt(a, key);								// binary search
+				Utility.readIntArray(a, arrLength);								// reads array elements
+				Utility.bubbleSortInt(a);										// sorts array elements
+			}
+			else
+			{
+				System.out.println("size of array should be greater than 0");
+			}
+		}
+		catch(NumberFormatException e)											// if user inputs other than integer
+		{
+			System.out.println("numeric input expected.. try again");
 		}
 		catch(Exception e)
 		{
-			System.out.println("Invalid Input.. Try again!");				// handles exceptions
+			System.out.println("Invalid Input.. Try again!");					// handles exceptions
 			sortNumbers();
 		}
 	}

@@ -1,13 +1,22 @@
 package functionalprograms;
 
-public class PowerOf2   //class declaration
+/**
+ * @purpose class declaration for printing power of power program
+ * @author Nikhil Jain
+ * @version 1.0
+ */
+public class PowerOf2   
 {
-	//calculates power of 2
+	/**
+	 * @purpose calculates power of 2
+	 * @param args
+	 * @return void
+	 */
 	public static void main(String[] args)
 	{
 		try
 		{
-			int n = Integer.parseInt(args[0]);														//Utility.input("Enter N: ");
+			int n = Integer.parseInt(args[0]);									// takes arguments from command line
 	
 			if(args.length == 1)
 			{
@@ -32,17 +41,17 @@ public class PowerOf2   //class declaration
 				System.out.println("one argument is allowed.. try again");
 			}
 		}
-		catch(NumberFormatException e)												// if user-input is other than integer 
+		catch(NumberFormatException e)														// if user-input is other than integer 
 		{
 			System.out.println("(only numbers are allowed.. try again)");
 		}
-		catch(ArrayIndexOutOfBoundsException e)												// if input is other than integer
+		catch(ArrayIndexOutOfBoundsException e)												// if arguments entered are incorrect
 		{
 			System.out.println("entered arguments should be 1.. try again");
 		}
 		catch(Exception e)
 		{
-			System.out.println(e.getMessage());										// handles other exceptions
+			System.out.println(e.getMessage());												// handles other exceptions
 		}
 	}
 }

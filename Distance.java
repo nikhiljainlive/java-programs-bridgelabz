@@ -1,9 +1,17 @@
 package functionalprograms;
 
-// Class Declaration for finding Euclidean Distance to points of origin
+/**
+ * @purpose Class Declaration for finding Euclidean Distance to points of origin
+ * @author Nikhil Jain
+ * @version 1.0
+ */
 public class Distance 
 {
-	// calculates Euclidean distance of a specified point to points of origin
+	/**
+	 * @purpose calculates Euclidean distance of a specified point to points of origin
+	 * @param void
+	 * @return void
+	 */
 	public static void findEDistance() 
 	{
 		try
@@ -15,14 +23,14 @@ public class Distance
 		
 		System.out.print("The Euclidean distance is: " + distance + "\n");
 		}
-		catch(NumberFormatException e)											// if user-input is other than integer
+		catch(NumberFormatException e)												// if user-input is other than integer
 		{
 			System.out.println("(only integer values are allowed.. try again)");
 			findEDistance();
 		}
 		catch(Exception e)
 		{
-			System.out.println(e.getMessage());									// handles other exceptions
+			System.out.println(e.getMessage());										// handles other exceptions
 		}
 	}
 }

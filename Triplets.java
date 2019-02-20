@@ -1,9 +1,17 @@
 package functionalprograms;
-
-// Class declaration for Triplets which sums up to zero
+ 
+/**
+ * @purpose Class declaration for Triplets which sums up to zero
+ * @author Nikhil Jain
+ * @version 1.0
+ */
 public class Triplets
-{
-	// finds the three numbers which sums up to zero
+{ 
+	/**
+	 * @purpose finds the three numbers which sums up to zero
+	 * @param void
+	 * @return void
+	 */
 	public static void findTriplets()
 	{
 		try
@@ -11,7 +19,7 @@ public class Triplets
 			int capacity = Utility.input("No. of Elements you want to check: "), count = 0;
 			int[] a = new int[capacity];
 			
-			Utility.readArray(a, capacity);
+			Utility.readIntArray(a, capacity);
 			
 			for(int i = 0; i < capacity; i++)
 			{

@@ -1,9 +1,15 @@
 package functionalprograms;
 
-// class declaration of decimal to binary number conversion method
+/**
+ * @purpose class declaration of decimal to binary number conversion method
+ * @author Nikhil Jain
+ * @version 1.0
+ */
 public class BinaryConversion 
 {
-	// takes decimal number from user and displays binary number
+	/**
+	 * @purpose takes decimal number from user and displays binary number
+	 */
 	public static void findBinaryNum()
 	{
 		try
@@ -20,8 +26,10 @@ public class BinaryConversion
 		
 	}
 	
-	// converts decimal number to binary number
-	// takes user input as argument
+	/**
+	 * @purpose converts decimal number to binary number
+	 * @param num / decimal number
+	 */
 	public static void toBinary1(int num)
 	{
 		if(num > 0)
@@ -50,7 +58,6 @@ public class BinaryConversion
 			int n = Utility.input("enter the number again: ");
 			toBinary1(n);
 		}
-		
 	}
 	
 	// another method to convert decimal to binary
@@ -76,6 +83,4 @@ public class BinaryConversion
 		
 		return binaryNum;
 	}
-	
-	
 }

@@ -1,7 +1,15 @@
 package functionalprograms;
 
+/**
+ * @purpose calss declaration for finding square root by Newton method
+ * @author Nikhil Jain
+ * @version 1.0
+ */
 public class SquareRoot 
 {
+	/**
+	 * @purpose calculates square root by Newton method
+	 */
 	public static void sqrt()
 	{
 		double c = Utility.input("enter num: ");

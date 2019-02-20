@@ -1,9 +1,17 @@
 package functionalprograms;
 
-// Class declaration for Gambler Program
+/**
+ * @purpose Class declaration for Gambler Program
+ * @author Nikhil Jain
+ * @version 1.0
+ */
 public class Gambler 
-{
-	// asks to enter value of stake from user
+{ 
+	/**
+	 * @purpose asks to enter value of stake from user
+	 * @param void
+	 * @return void
+	 */
 	public static void playGambler()
 	{
 		try
@@ -31,8 +39,11 @@ public class Gambler
 		}
 	}
 	
-	// calculates wins, percentage of wins and loss
-	// takes stake as argument
+	/**
+	 * @purpose calculates wins, percentage of wins and loss
+	 * @param stake
+	 * @return void
+	 */
 	public static void calculateWins(int stake)
 	{	
 		try {

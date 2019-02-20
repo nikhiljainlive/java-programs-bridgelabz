@@ -1,20 +1,28 @@
 package functionalprograms;
 
-// Class declaration for replacing string
+/**
+ * @purpose Class declaration for replacing string
+ * @author Nikhil Jain
+ * @version 1.0
+ */
 public class ReplaceString 
 {
-	// prints hello message with user-name
+	/**
+	 * @purpose prints hello message with user-name
+	 * @param void
+	 * @return void
+	 */
 	public static void replaceString()
 	{
 		try 
 		{
-			String username = Utility.stringInput("Enter your Username: ");					// taking input using input method of utility class
+			String userName = Utility.stringInput("Enter your Username: ");					// taking input using input method of utility class
 			
-			if(Utility.isString(username) == true)											// validates the string if contains digits or white-spaces
+			if(Utility.isString(userName) == true)											// validates the string if contains digits or white-spaces
 			{
-				if(username.length() >= 3)													// prints message if user-name is greater than 3 characters
+				if(userName.length() >= 3)													// prints message if user-name is greater than 3 characters
 				{
-					System.out.println("Hello " + username + ", How are you?\n");
+					System.out.println("Hello " + userName + ", How are you?\n");
 				}
 				else
 				{

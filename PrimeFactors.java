@@ -1,9 +1,18 @@
 package functionalprograms;
 
-// class declaration for PrimeFactors
+// 
+/**
+ * @purpose class declaration for finding Prime Factors
+ * @author Nikhil Jain
+ * @version 1.0
+ */
 public class PrimeFactors
 {
-	// finds prime factors
+	/**
+	 * @purpose finds prime factors
+	 * @param void
+	 * @return void
+	 */
 	public static void findPrimeFactors()
 	{
 		try

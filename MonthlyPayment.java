@@ -1,10 +1,16 @@
 package functionalprograms;
 
-// class declaration of calculating monthly payment program
+/**
+ * @purpose class declaration of calculating monthly payment program
+ * @author Nikhil Jain
+ * @version 1.0
+ */
 public class MonthlyPayment 
 {
-	// main method to print monthly payment
-	// takes 3 arguments - p(principle loan), y(years) and r(rate of interest)
+	/**
+	 * @purpose main method to print payment
+	 * @param p, y and r / command line args
+	 */
 	public static void main(String[] args)										
 	{
 		try
@@ -39,8 +45,13 @@ public class MonthlyPayment
 		}
 	}
 	
-	// calculates payment
-	// takes loan, years, rate as arguments
+	/**
+	 * @purpose calculates payment
+	 * @param loan (double)
+	 * @param years (double)
+	 * @param rate (double)
+	 * @return payment (double)
+	 */
 	public static double calculatePayment(double loan, double years, double rate)
 	{
 		double n = 12 * years, r = (rate / (12 * 100)), power = Math.pow((1+ r), (-n));

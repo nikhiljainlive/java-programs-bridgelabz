@@ -1,9 +1,17 @@
 package functionalprograms;
 
-// Class declaration for functional program List
+/**
+ * @purpose Class declaration for functional program List
+ * @author Nikhil Jain
+ * @version 1.0
+ */
 public class FuncProgramList 
 {
-	// method for displaying functional program list
+	/**
+	 * @purpose method for displaying functional program list
+	 * @param void
+	 * @return void
+	 */
 	public static void programList()
 	{
 		System.out.println("\n===============================================================================================");
@@ -30,7 +38,11 @@ public class FuncProgramList
 		functMenu();									// calling method which performs switch case statements
 	}
 	
-	// implements switch case statements
+	/**
+	 * @purpose implements switch case statements
+	 * @param void
+	 * @return void
+	 */
 	public static void functMenu()
 	{
 		boolean value = true;
@@ -43,9 +55,9 @@ public class FuncProgramList
 					case -1: programList();
 							break;
 				
-					case 0: EntryPoint.main(null);						// case 0 for returning back to main method
-							break;
-							
+					case 0: EntryPoint.programList();					// returns back to main method
+							return;						
+					
 				 	case 1: ReplaceString.replaceString();				// replace string method
 				 			break;
 				 			
@@ -55,7 +67,7 @@ public class FuncProgramList
 				 	case 3: LeapYear.isLeapYear();						// method for finding leap year
 			 				break;
 			 			
-				 	//case 4: PowerOf2.findPowerOfTwo();					// method for calculating power of 2
+				 	//case 4: PowerOf2.findPowerOfTwo();			// cmd line -method for calculating power of 2
 			 		//		break;
 			 			
 				 	case 5: Harmonicnum.findHarmonicNum();				// method for finding harmonic number
@@ -67,7 +79,7 @@ public class FuncProgramList
 				 	case 7: Gambler.playGambler();						// gambler program
 			 				break;
 			 			
-				 	case 8: CouponNumbers.getCouponNums();				// coupon numbers program
+				 	case 8: Coupons.getCouponNums();			 		// coupon numbers program
 			 				break;
 			 			
 				 	case 9: TwoDArray.twodarray();						// 2-d array program
@@ -79,8 +91,8 @@ public class FuncProgramList
 				 	case 11: Distance.findEDistance();					// finds euclidean distance
 				 			break;
 				 			
-				 	case 12: System.out.println("Build in Progress"); 
-		 					break;
+				 	//case 12: StringPermutation 						// separate program - String permutation
+		 			//		break;
 		 					
 				 	case 13: Stopwatch.displayTimer();					// stop-watch timer
 		 					break;

@@ -1,9 +1,16 @@
 package functionalprograms;
 
-// class declaration of finding day of week
+/**
+ * @purpose class declaration of finding day of week
+ * @author Nikhil Jain
+ * @version 1.0
+ */
 public class DayFinder 
 {
-	// main method to display result
+	/**
+	 * @purpose main method to display result
+	 * @param month, date, year / 3 command line arguments 
+	 */
 	public static void main(String[] args)
 	{
 		try
@@ -14,7 +21,7 @@ public class DayFinder
 			
 			if(args.length == 3)
 			{
-				if(month > 0 && month <= 12 && date > 0 && date <=31 && Utility.yearCount(year) == 4)
+				if(month > 0 && month <= 12 && date > 0 && date <=31 && Utility.digitsCount(year) == 4)
 				{
 					System.out.println(dayOfWeek(month, date, year));	
 				}
@@ -43,7 +50,13 @@ public class DayFinder
 		
 	}
 	
-	// calculates day of week
+	/**
+	 * @purpose calculates day of week
+	 * @param m / month
+	 * @param d / date
+	 * @param y / year
+	 * @return d0 / day of week and week starts from Sunday(0)
+	 */
 	public static int dayOfWeek(int m, int d, int y)
 	{
 		

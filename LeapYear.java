@@ -1,15 +1,23 @@
 package functionalprograms;
 
-// class declaration of Leap year program
+/**
+ * @purpose class declaration of Leap year program
+ * @author Nikhil Jain
+ * @version 1.0
+ */
 public class LeapYear 
 {
-	// checks the year is leap year or not
+	/**
+	 * @purpose prints the year is a leap year or not
+	 * @param void
+	 * @return void
+	 */
 	public static void isLeapYear()
 	{
 		try 
 		{
 			int year = Utility.input("enter the year: ");
-			int count = Utility.yearCount(year);
+			int count = Utility.digitsCount(year);
 			if(count == 4 && Utility.isLessthan(year, 0) == false)
 			{
 				if(year % 4 == 0 || year % 400 == 0)

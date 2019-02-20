@@ -1,24 +1,32 @@
 package functionalprograms;
 
-// class declaration for FlipCoin program
+/**
+ * @purpose class declaration for FlipCoin program
+ * @author admin1
+ * @version 1.0
+ */
 public class FlipCoin 
 {
-	// calculates the percentage of heads and tails in flipping a coin
+	/**
+	 * @purpose calculates the percentage of heads and tails in flipping a coin
+	 * @param void
+	 * @return void
+	 */
 	public static void flipCoin()
 	{
 		try 
 		{
-			int nooftimes = Utility.input("Enter the no. of times to flip coin: ");
+			int noOfTimes = Utility.input("Enter the no. of times to flip coin: ");
 			int heads = 0, tails = 0;
 				
-			if(Utility.isLessthan(nooftimes, 0))
+			if(Utility.isLessthan(noOfTimes, 0))
 			{
 				System.out.println("(only positive integers are allowed...try again)");
 				flipCoin();
 			}
 			else
 			{
-				for (int i = 1; i <= nooftimes; i++)
+				for (int i = 1; i <= noOfTimes; i++)
 				{
 					double random = Utility.randomnum();
 					if (random < 0.5)
@@ -31,8 +39,8 @@ public class FlipCoin
 					}//end of inner if-else block
 				}
 				
-				System.out.println("Heads: " + Utility.percent(heads, nooftimes) + "%");
-				System.out.println("Tails: " + Utility.percent(tails, nooftimes) + "%");
+				System.out.println("Heads: " + Utility.percent(heads, noOfTimes) + "%");
+				System.out.println("Tails: " + Utility.percent(tails, noOfTimes) + "%");
 			}//end of outer if-else block
 		}
 		catch(NumberFormatException e)												// if user-input is other than integer 

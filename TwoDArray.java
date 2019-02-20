@@ -1,9 +1,17 @@
 package functionalprograms;
 
-// class declaration for 2-d array
+/**
+ * @purpose class declaration for 2-d array
+ * @author Nikhil Jain
+ * @version 1.0
+ */
 public class TwoDArray 
 {
-	// method for declaring 2-d array
+	/**
+	 * @purpose method for declaring 2-d array
+	 * @param void
+	 * @return void
+	 */
 	public static void twodarray()
 	{
 		try 
@@ -27,8 +35,12 @@ public class TwoDArray
 		}
 	}
 	
-	// method for reading elements from user
-	// takes 2d array, rows and columns as arguments
+	/**
+	 * @purpose method for reading elements from user
+	 * @param a  / array
+	 * @param rows / number of rows
+	 * @param columns / number of columns
+	 */
 	public static void readArray(int[][] a,int rows,int columns)
 	{
 		for(int i = 0; i < rows; i++)
@@ -41,7 +53,12 @@ public class TwoDArray
 		}// end of outer loop
 	}
 	
-	// method for displaying elements of array
+	/**
+	 * @purpose method for displaying elements of array
+	 * @param a / array
+	 * @param rows / number of rows
+	 * @param columns / number of columns
+	 */
 	public static void displayArray(int[][] a,int rows,int columns)
 	{
 		for(int i = 0; i < rows; i++)

@@ -1,10 +1,17 @@
 package functionalprograms;
 
-//Class Declaration of stop-watch program
+/**
+ * @purpose class declaration of stop-watch program
+ * @author Nikhil Jain
+ * @version 1.0
+ */
 public class Stopwatch
 {
-	// displays the stop-watch timer
-	// time class has been used for time reference
+	/**
+	 * @purpose displays the stop-watch timer
+	 * @param void
+	 * @return void
+	 */
 	public static void displayTimer()
 	{
 		try

@@ -1,6 +1,10 @@
 package functionalprograms;
-
-// Class Declaration of TicTacToe Game
+ 
+/**
+ * @purpose class declaration of TicTacToe Game
+ * @author Nikhil Jain
+ * @version 1.0
+ */
 public class TicTacToe
 {
 	// defining array as static as to use it in all methods easily
@@ -12,8 +16,12 @@ public class TicTacToe
 			};
 	static int length = a.length * 3;
 	static boolean occupied = false;
-	
-	// to take input from player one
+
+	/**
+	 * @purpose takes input from player one and performs player's chance
+	 * @param void
+	 * @return void
+	 */
 	public static void playerOne()
 	{
 		int position = Utility.input("Enter the position: ");
@@ -68,7 +76,11 @@ public class TicTacToe
 		}
 	}
 	
-	// generates random number from 1 to 9 and insert input for computer's turn
+	/**
+	 * @purpose generates random number from 1 to 9 and insert input for computer's turn
+	 * @param void
+	 * @return void
+	 */
 	public static void computerTurn()
 	{
 		int position = (int) (Math.random()*9) ;
@@ -118,8 +130,12 @@ public class TicTacToe
 		}
 		
 	}
-	
-	// displays the game-board 
+	  
+	/**
+	 * @purpose displays the game-board
+	 * @param void
+	 * @return void
+	 */
 	public static void display()
 	{
 			System.out.println(a[0][0] + " | " + a[0][1] + " | " + a[0][2]);
@@ -129,8 +145,12 @@ public class TicTacToe
 			System.out.println(a[2][0] + " | " + a[2][1] + " | " + a[2][2]);
 		//}
 	}
-	
-	// checks condition if player has won
+
+	/**
+	 * @purpose checks condition if player has won
+	 * @param void
+	 * @return boolean
+	 */
 	public static boolean isPlayerWon()
 	{
 		if(a[0][0] == 'X' && a[0][1]  == 'X' && a[0][2] == 'X' || a[0][0] == 'X' && a[1][0]  == 'X' && a[2][0] == 'X' || a[0][1] == 'X' && a[1][1]  == 'X' && a[2][1] == 'X' || a[0][2] == 'X' && a[1][2]  == 'X' && a[2][2] == 'X' || a[1][0] == 'X' && a[1][1]  == 'X' && a[1][2] == 'X' || a[2][0] == 'X' && a[2][1]  == 'X' && a[2][2] == 'X' || a[0][0] == 'X' && a[1][1]  == 'X' && a[2][2] == 'X' || a[0][2] == 'X' && a[1][1]  == 'X' && a[2][0] == 'X' )
@@ -139,8 +159,12 @@ public class TicTacToe
 		}
 		return false;
 	}
-	
-	// checks if computer has won
+
+	/**
+	 * @purpose returns true if computer has won else returns false
+	 * @param void
+	 * @return boolean
+	 */
 	public static boolean isComputerWon()
 	{
 		if(a[0][0] == 'O' && a[0][1]  == 'O' && a[0][2] == 'O' || a[0][0] == 'O' && a[1][0]  == 'O' && a[2][0] == 'O' || a[0][1] == 'O' && a[1][1]  == 'O' && a[2][1] == 'O' || a[0][2] == 'O' && a[1][2]  == 'O' && a[2][2] == 'O' || a[1][0] == 'O' && a[1][1]  == 'O' && a[1][2] == 'O' || a[2][0] == 'O' && a[2][1]  == 'O' && a[2][2] == 'O' || a[0][0] == 'O' && a[1][1]  == 'O' && a[2][2] == 'O' || a[0][2] == 'O' && a[1][1]  == 'O' && a[2][0] == 'O' )
@@ -149,8 +173,12 @@ public class TicTacToe
 		}
 		return false;
 	}
-	
-	// starts the game-play and this method is the entry-point of the game
+
+	/**
+	 * @purpose starts the game-play and this method is the entry-point of the game
+	 * @param void
+	 * @return void
+	 */
 	public static void playGame()
 	{
 		System.out.println("Welcome to Tic-Tac-Toe Game!\n");

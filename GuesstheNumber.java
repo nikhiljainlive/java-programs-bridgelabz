@@ -1,19 +1,29 @@
 package functionalprograms;
 
+/**
+ * @purpose class declaration for guess the number program
+ * @author Nikhil Jain
+ * @version 1.0
+ */
 public class GuesstheNumber
 {
+	/**
+	 * @purpose main method to guessing number 
+	 * @param args / command line argument
+	 * @return void
+	 */
 	public static void main(String[] args)
 	{
 		try 
 		{
-			int num = Integer.parseInt(args[0]);
+			int power = Integer.parseInt(args[0]);
 			if (args.length == 1)
 			{
-				if(num > 0)
+				if(power > 0)
 				{
-					int n = (int) Math.pow(2, num);
+					int n = (int) Math.pow(2, power);
 					
-					guessNum(n,num);	
+					guessNum(n, power);	
 				}
 				else
 				{
@@ -39,15 +49,20 @@ public class GuesstheNumber
 		}
 	}
 	
-	public static void guessNum(int n, int num)
+	/**
+	 * @purpose finds the number by binary search
+	 * @param n / number range
+	 * @param p / power
+	 */
+	public static void guessNum(int n, int p)
 	{
 		int li = 0, hi = n - 1, mid = (li + hi) / 2;
-		for(int i = 0; i < num; i++)
+		for(int i = 0; i < p; i++)
 		{
 			try 
 			{
 				System.out.println("Is your number less than " + mid + " ?");
-				String value = Utility.stringInput("say 'true' or 'false' : ");														//boolean value = Utility.scan.nextBoolean();
+				String value = Utility.stringInput("say 'true' or 'false' : ");
 				int isTrue = value.compareTo("true");
 				int isFalse = value.compareTo("false");
 				if(isTrue == 0 || isFalse == 0)
@@ -72,7 +87,7 @@ public class GuesstheNumber
 					System.out.println("only answer with 'true' or 'false'... Try again");
 				}
 			}
-			catch(Exception e)
+			catch(Exception e)														// handles exceptions
 			{
 				System.out.println(e.getMessage());
 			}
